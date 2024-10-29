@@ -5,7 +5,7 @@ const app = express();
 app.use("/public", express.static(__dirname + "/public"));
 
 app.get("/", (req, res) => {
-  res.write('Hello, World\n');
+  res.write('Hello, Woeld!\n');
 });
 
 app.use( (req, res, next) => {
