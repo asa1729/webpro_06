@@ -24,10 +24,17 @@
   }
 ```
 
+## ファイル一覧
+ファイル名 | 説明
+-|-
+app5.js | プログラム本体
+janken.ejs | テンプレートファイル
+public/janken.html | じゃんけん画面
+
 ```mermaid
 flowchart TD;
 
-start["開始"];
+start["開始"]
 end1["終了"]
 if{"条件に合うか"}
 win["勝ち"]
@@ -39,10 +46,3 @@ win --> end1
 if -->|no| lose
 lose --> end1
 ```
-
-## ファイル一覧
-ファイル名 | 説明
--|-
-app5.js | プログラム本体
-janken.ejs | テンプレートファイル
-public/janken.html | じゃんけん画面
