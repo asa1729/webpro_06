@@ -129,7 +129,7 @@ app.get("/pokemon", (req, res) => {
       left = [50, 30, 20]; 
       cri_point = 0; 
       all_inc = 0; 
-      cri_judge = [0, 0, 0, 0]; 
+      cri_judge = [5, 5, 5, 5]; 
       break;
     }
   }
@@ -199,8 +199,6 @@ app.get("/pokemon", (req, res) => {
     left_sup: left[1],
     left_hyp: left[2],
     cri_point: cri_point,
-    all_inc: all_inc,
-    cri_judge,
     a: a,
     b: b,
     c: c,
@@ -211,19 +209,18 @@ app.get("/pokemon", (req, res) => {
   res.render( 'pokemon', display );
 });
 
-let win = 0; // 勝ち数の初期化
-let lose = 0; // 負け数の初期化
+let win = 0; 
+let lose = 0;
 
 app.get("/fig", (req, res) => {
-  const player = Number(req.query.player || 0); // プレイヤーが叫ぶ数字
-  const player_f = Number(req.query.player_f || 0); // プレイヤーが上げる指
-  const turn = Number(req.query.turn || 0); // 現在のターン（デフォルトは0）
-  const cpu_number = Math.floor(Math.random() * 5); // 相手の叫ぶ数字（0～4）
-  const cpu_finger = Math.floor(Math.random() * 3); // 相手の指の本数（0～2）
+  const player = Number(req.query.player || 0); 
+  const player_f = Number(req.query.player_f || 0);
+  const turn = Number(req.query.turn || 0); 
+  const cpu_number = Math.floor(Math.random() * 5); 
+  const cpu_finger = Math.floor(Math.random() * 3); 
 
   let result = ""; 
 
-  // 最初のゲームを開始する場合（初期化）
   if (turn == 0) {
     return res.render("fig", {
       win: win,
