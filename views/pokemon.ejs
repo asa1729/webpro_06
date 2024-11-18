@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ポケモンゲット</title>
+</head>
+<body>
+    <% if (actionType == 1) { %>
+        <h1>ポケモンゲットゲーム</h1>
+        <p>ランダムで現れるポケモンを捕まえよう！</p>
+        <hr>
+        <form action="/pokemon" method="get">
+            <input type="radio" name="ball" id="ball5" value="5">
+            <label for="ball5">スタート！</label><br>
+            <input type="submit" value="送信">
+            <input type="hidden" name="count_pika" value="<%= (count_pika) ? count_pika : 0 %>">
+            <input type="hidden" name="count_moko" value="<%= (count_moko) ? count_moko : 0 %>">
+            <input type="hidden" name="count_nyor" value="<%= (count_nyor) ? count_nyor : 0 %>">
+            <input type="hidden" name="count_danb" value="<%= (count_danb) ? count_danb : 0 %>">
+            <input type="hidden" name="count_fire" value="<%= (count_fire) ? count_fire : 0 %>">
+        </form>
+
+    <% } else if (actionType == 2) { %>
+        <h2>野生の<%= mon %>が現れた！</h2>
+        <p>どのボールを使う？(モンスターボール×<%= left_mon %>，スーパーボール×<%= left_sup %>，ハイパーボール×<%= left_hyp %>)</p>
+        <hr>
+        <form action="/pokemon" method="get">
+            <% if (left_mon > 0) { %>
+                <input type="radio" name="ball" id="ball1" value="1">
+                <label for="ball1">モンスターボール</label><br>
+            <% } %>
+            <% if (left_sup > 0) { %>
+                <input type="radio" name="ball" id="ball2" value="2">
+                <label for="ball2">スーパーボール</label><br>
+            <% } %>
+            <% if (left_hyp > 0) { %>
+                <input type="radio" name="ball" id="ball3" value="3">
+                <label for="ball3">ハイパーボール</label><br>
+            <% } %>
+
+            <% if (left_hyp <= 0 && left_mon <= 0 && left_sup <= 0) { %>
+                <h2>ゲームオーバー！</h2>
+                <p>あなたは眼の前が真っ暗になった．</p>
+                <p>ヒント</p>
+                <p>捕まえやすいポケモンをたくさん捕まえよう</p>
+                <p>ファイヤー以外のポケモンを全種類捕まえよう</p>
+                <input type="radio" name="ball" id="ball6" value="6">
+                <label for="ball6">はじめから</label><br>
+                <input type="submit" value="次へ">
+            <% } else { %>
+                <input type="radio" name="ball" id="ball4" value="4">
+                <label for="ball4">逃げる</label><br>
+                <input type="submit" value="次へ">
+            <% } %>
+
+            <input type="hidden" name="count_pika" value="<%= count_pika %>">
+            <input type="hidden" name="count_moko" value="<%= count_moko %>">
+            <input type="hidden" name="count_nyor" value="<%= count_nyor %>">
+            <input type="hidden" name="count_danb" value="<%= count_danb %>">
+            <input type="hidden" name="count_fire" value="<%= count_fire %>">
+        </form>
+        <hr>
+        <p>捕まえた数</p>
+        <p>ピカチュウ:<%= count_pika %> モココ:<%= count_moko %> ニョロトノ:<%= count_nyor %> ダンバル:<%= count_danb %> ファイヤー:<%= count_fire %></p>
+    
+    <% } else if (actionType == 3) { %>
+        <p>(モンスターボール×<%= left_mon %>，スーパーボール×<%= left_sup %>，ハイパーボール×<%= left_hyp %>)</p>
+        <hr>
+        <p><%= critical %></p>
+        <p><%= judgement %></p>
+        <hr>
+        <form action="/pokemon" method="get">
+            <input type="radio" name="ball" id="ball5" value="5">
+            <label for="ball5">次へ</label><br>
+            <input type="submit" value="送信">
+            <input type="hidden" name="count_pika" value="<%= count_pika %>">
+            <input type="hidden" name="count_moko" value="<%= count_moko %>">
+            <input type="hidden" name="count_nyor" value="<%= count_nyor %>">
+            <input type="hidden" name="count_danb" value="<%= count_danb %>">
+            <input type="hidden" name="count_fire" value="<%= count_fire %>">
+        </form>
+        <hr>
+        <p>捕まえた数</p>
+        <p>ピカチュウ:<%= count_pika %> モココ:<%= count_moko %> ニョロトノ:<%= count_nyor %> ダンバル:<%= count_danb %> ファイヤー:<%= count_fire %></p>
+
+    <% } else if (actionType == 4) { %>
+
+        <p>(モンスターボール×<%= left_mon %>，スーパーボール×<%= left_sup %>，ハイパーボール×<%= left_hyp %>)</p>
+        <hr>
+        <p>うまく逃げ切れた</p>
+        <hr>
+        <form action="/pokemon" method="get">
+            <input type="radio" name="ball" id="ball5" value="5">
+            <label for="ball5">次へ</label><br>
+            <input type="submit" value="送信">
+            <input type="hidden" name="count_pika" value="<%= count_pika %>">
+            <input type="hidden" name="count_moko" value="<%= count_moko %>">
+            <input type="hidden" name="count_nyor" value="<%= count_nyor %>">
+            <input type="hidden" name="count_danb" value="<%= count_danb %>">
+            <input type="hidden" name="count_fire" value="<%= count_fire %>">
+        </form>
+        <hr>
+        <p>捕まえた数</p>
+        <p>ピカチュウ:<%= count_pika %> モココ:<%= count_moko %> ニョロトノ:<%= count_nyor %> ダンバル:<%= count_danb %> ファイヤー:<%= count_fire %></p>
+    <% } else if (actionType == 5) { %>
+        <p>(モンスターボール×<%= left_mon %>，スーパーボール×<%= left_sup %>，ハイパーボール×<%= left_hyp %>)</p>
+        <hr>
+        <p><%= critical %></p>
+        <p><%= judgement %></p>
+        <h2>おめでとう！ゲームクリア！</h2>
+        <hr>
+        <form action="/pokemon" method="get">
+            <input type="radio" name="ball" id="ball6" value="6">
+            <label for="ball6">はじめから</label><br>
+            <input type="submit" value="送信">
+            <input type="hidden" name="count_pika" value="<%= count_pika %>">
+            <input type="hidden" name="count_moko" value="<%= count_moko %>">
+            <input type="hidden" name="count_nyor" value="<%= count_nyor %>">
+            <input type="hidden" name="count_danb" value="<%= count_danb %>">
+            <input type="hidden" name="count_fire" value="<%= count_fire %>">
+        </form>
+        <hr>
+        <p>捕まえた数</p>
+        <p>ピカチュウ:<%= count_pika %> モココ:<%= count_moko %> ニョロトノ:<%= count_nyor %> ダンバル:<%= count_danb %> ファイヤー:<%= count_fire %></p>
+    <% } %>
+    <hr>
+    <p>//-デバッグ用-//</p>
+    <p>a: <%= a %>, b: <%= b %>, c: <%= c %></p>
+    <p>クリティカル倍率: <%= cri_point %> クリティカル判定用乱数: <%= cri %></p>
+    <p>捕獲判定用乱数: <%= num %></p>
+</body>
+</html>

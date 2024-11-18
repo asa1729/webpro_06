@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ポケモンゲット</title>
+</head>
+<body>
+    <h1>ポケモンゲット</h1>
+
+    <!-- 最初に現れたポケモンを表示 -->
+    <p>野生のポケモンが現れた！</p>
+    <p><strong><%= mon %>が現れた！</strong></p> <!-- ランダムに選ばれたポケモン名を表示 -->
+
+    <!-- ボールを投げるフォーム -->
+    <form action="/pokemon">
+        <input type="text" name="ball" required placeholder="ボール名 (モンスターボール，スーパーボール、ハイパーボール)">
+        <label for="ball">どのボールを使う？</label>
+        <input type="submit" value="投げる!">
+    </form>
+
+</body>
+</html>

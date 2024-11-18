@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>いっせーのっせ！</title>
+</head>
+<body>
+    <h1>いっせーのっせ！</h1>
+
+    <% if (turn == 1) { %>
+        <p>ゲームスタート！</p>
+        <form action="/fig" method="get">
+            <input type="hidden" name="turn" value="1">
+            <input type="submit" value="開始！">
+        </form>
+    <% } else { %>
+        <p>現在のターン: <%= turn %></p>
+
+        <% if (turn % 2 == 1) { %>
+            <h2>あなたのターン！</h2>
+            <form action="/fig" method="get">
+                <label for="player">叫ぶ数字 (0～4):</label>
+                <input type="number" id="player" name="player" min="0" max="4" required><br>
+
+                <label for="player_f">上げる指 (0～2):</label>
+                <input type="number" id="player_f" name="player_f" min="0" max="2" required><br>
+
+                <input type="hidden" name="turn" value="<%= turn %>">
+                <button type="submit">いっせーのっせ！</button>
+            </form>
+        <% } else { %>
+            <h2>相手のターン！</h2>
+            <form action="/fig" method="get">
+                <label for="player_f">上げる指 (0～2):</label>
+                <input type="number" id="player_f" name="player_f" min="0" max="2" required><br>
+
+                <input type="hidden" name="turn" value="<%= turn %>">
+                <button type="submit">いっせーのっせ！</button>
+            </form>
+        <% } %>
+
+        <% if (result) { %>
+            <hr>
+            <h2><%= result %></h2>
+            <% if (cpu_number !== null && cpu_finger !== null) { %>
+                <p>相手が叫んだ数字: <%= cpu_number %></p>
+                <p>相手が上げた指: <%= cpu_finger %></p>
+            <% } %>
+        <% } %>
+
+        <hr>
+        <p>勝ち数: <%= win %></p>
+        <p>負け数: <%= lose %></p>
+    <% } %>
+</body>
+</html>
