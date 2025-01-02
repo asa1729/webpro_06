@@ -1,0 +1,43 @@
+.cover {
+    margin: 3px;
+    border-left: 2px solid blue;
+    border-right: 2px solid blue;
+    border-top: 2px solid blue;
+    border-bottom: 2px solid blue;
+    border-radius: 1px;
+}
+
+.name {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 8em;
+}
+
+.mes {
+    margin-left: 30px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    line-height: 2;
+    margin-top: 10px;
+    margin-left: 2px;
+    margin-bottom: 2px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+header {
+    font-style: italic;
+    font-weight: bold;
+    border-bottom: 10px solid #3097d7;
+    border-top: 10px solid #3097d7;
+}

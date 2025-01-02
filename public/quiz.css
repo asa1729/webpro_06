@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+#quiz-container {
+    margin-top: 20px;
+    background-color: aqua;
+    color: black;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+}
+
+button:hover {
+    background-color: #f0f0f0;
+}
+
+header {
+    font-style: italic;
+}
