@@ -295,3 +295,28 @@ if5 -->|yes| start
 if5 -->|no| end1
 gameclear --> if5
 ```
+```mermaid
+sequenceDiagram
+    participant A as Webブラウザ
+    participant B as Webサーバ
+    participant C as bbsクライアント
+    participant D as bbsサーバ
+
+
+    A->>B: Webページの取得
+    B-->>A: HTML,JS,CSS
+    A->>C: 起動
+    C->>D: POST(書き込み, 編集内容の保存)
+    D-->>C: 投稿の数
+    C->>D: CHECK(リアルタイム更新)
+    D-->>C: 投稿の数
+    C->>D: READ(投稿の読み込み)
+    D-->>C: 投稿内容，名前
+    C->>D: POST(編集)
+    D-->>C: 編集の成功を知らせる
+    C->>D: POST(削除)
+    D-->>C: 削除したことを知らせる
+    C->>D: POST(いいね)
+    D-->>C: いいねの数
+
+```

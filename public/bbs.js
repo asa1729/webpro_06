@@ -3,7 +3,6 @@
 let number = 0;
 const bbs = document.querySelector('#bbs');
 
-// 投稿の送信
 document.querySelector('#post').addEventListener('click', () => {
     const name = document.querySelector('#name').value;
     const message = document.querySelector('#message').value;
@@ -28,7 +27,6 @@ document.querySelector('#post').addEventListener('click', () => {
         });
 });
 
-// 投稿のチェック（リアルタイム更新）
 setInterval(() => {
     const params = {
         method: "POST",
@@ -50,9 +48,8 @@ setInterval(() => {
                 fetchPosts();
             }
         });
-}, 5000); // 5秒ごとに更新チェック
+}, 5000);
 
-// 投稿の読み込み
 function fetchPosts() {
     const params = {
         method: "POST",
@@ -77,7 +74,6 @@ function fetchPosts() {
         });
 }
 
-// UIに投稿を追加
 function addPostToUI(post) {
     let cover = document.createElement('div');
     cover.className = 'cover';
@@ -145,7 +141,6 @@ function addPostToUI(post) {
     bbs.appendChild(cover);
 }
 
-// 編集フォームの表示
 function showEditForm(id, nameArea, messageArea) {
     const editForm = document.createElement('div');
     editForm.className = 'edit-form';
@@ -198,7 +193,3 @@ function showEditForm(id, nameArea, messageArea) {
 
     messageArea.parentElement.appendChild(editForm);
 }
-
-// 利用者向け：画面のレイアウト，ボタンの説明
-// 管理者向け：サービスを立ち上げる手順
-// 開発者向け：内部的な構造，変数の説明

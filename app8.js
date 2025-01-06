@@ -22,12 +22,12 @@ app.post("/read", (req, res) => {
   else res.json( {messages: bbs.slice( start )});
 });
 
-let currentId = 0; // 一意のIDを生成するためのカウンター
+let currentId = 0;
 
 app.post("/post", (req, res) => {
   const name = req.body.name;
   const message = req.body.message;
-  bbs.push({ id: currentId++, name: name, message: message }); // IDを追加
+  bbs.push({ id: currentId++, name: name, message: message });
   res.json({ number: bbs.length });
 });
 
@@ -50,14 +50,10 @@ app.put("/post/:id", (req, res) => {
     const id = Number(req.params.id);
     const { name, message } = req.body;
 
-    console.log("PUT request received:", { id, name, message }); // 確認用ログ
-
     const post = bbs.find(mes => mes.id === id);
     if (post) {
         post.name = name || post.name;
         post.message = message || post.message;
-
-        console.log("Updated post:", post); // 確認用ログ
 
         res.json({ success: true, message: "投稿を編集しました", post });
     } else {
@@ -66,11 +62,11 @@ app.put("/post/:id", (req, res) => {
 });
 
 app.delete("/post/:id", (req, res) => {
-    const id = Number(req.params.id); // URLパラメータからidを取得
-    const index = bbs.findIndex(mes => mes.id === id); // IDで検索
+    const id = Number(req.params.id); 
+    const index = bbs.findIndex(mes => mes.id === id); 
 
     if (index !== -1) {
-        bbs.splice(index, 1); // 指定されたIDの投稿を削除
+        bbs.splice(index, 1);
         res.json({ success: true, message: "投稿を削除しました" });
     } else {
         res.status(404).json({ success: false, message: "投稿が見つかりません" });
