@@ -302,6 +302,6 @@ sequenceDiagram
 
 
     B->>A: LEDの状態を問い合わせる
-    
+    A->>A: ボタンが押されていたらLEDを反転
 
 ```
