@@ -302,8 +302,8 @@ sequenceDiagram
 
 
     B-)A: LEDの状態を問い合わせる
-    A->>A: フラグが1だったらLEDを反転
-    A->>B: LEDの状態
-    B->>B: 間隔を空ける
+    A-)A: フラグが1だったらLEDを反転
+    A-)B: LEDの状態
+    B-)B: 間隔を空ける
 
 ```
